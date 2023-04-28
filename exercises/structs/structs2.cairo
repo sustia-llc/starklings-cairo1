@@ -27,13 +27,8 @@ fn create_order_template() -> Order {
 #[test]
 fn test_your_order() {
     let order_template = create_order_template();
-    // TODO: Deserialize your order into multiple variables to make the assertions pass!
-    let year = 2019;
-    let made_by_phone = false;
-    let made_by_mobile = false;
-    let made_by_email = true;
-    let item_number = 123;
-    let count = 0;
+    // TODO: Destructure your order into multiple variables to make the assertions pass!
+    let Order { .., year, made_by_phone, made_by_mobile, made_by_email, item_number, count } = order_template; 
 
     assert(order_template.name == 'Bob', 'Wrong name');
     assert(year == order_template.year, 'Wrong year');
