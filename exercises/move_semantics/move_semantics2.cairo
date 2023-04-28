@@ -4,13 +4,13 @@
 
 use array::ArrayTrait;
 use debug::PrintTrait;
-
-// I AM NOT DONE
+use clone::Clone;
+use array::ArrayTCloneImpl;
 
 fn main() {
     let arr0 = ArrayTrait::new();
-
-    let mut arr1 = fill_array(arr0);
+    let clone_arr0 = arr0.clone();
+    let mut arr1 = fill_array(clone_arr0); // ownership of clone_arr0 moved to fill_array
 
     // Do not change the following line!
     arr0.print();
