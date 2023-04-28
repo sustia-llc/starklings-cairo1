@@ -27,13 +27,11 @@ impl PackageImpl of PackageTrait {
         Package { sender_country, recipient_country, weight_in_grams,  }
     }
 
-    fn is_international(ref self: Package) -> bool
-    {
+    fn is_international(ref self: Package) -> bool {
         self.sender_country != self.recipient_country
     }
 
-    fn get_fees(ref self: Package, cents_per_gram: usize) -> usize
-    {
+    fn get_fees(ref self: Package, cents_per_gram: usize) -> usize {
         self.weight_in_grams * cents_per_gram
     }
 }
