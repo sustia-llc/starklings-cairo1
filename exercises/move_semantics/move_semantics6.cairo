@@ -12,18 +12,19 @@ struct Number {
 fn main() {
     let mut number = Number { value: 1111111_u32 };
 
-    get_value(ref number);
+    get_value(@number);
 
-    set_value(ref number);
+    set_value(number);
+
 }
 
 // Should not take ownership and not modify the variable passed.
-fn get_value(ref number: Number) -> u32 {
-    number.value
+fn get_value(number: @Number) -> u32 {
+    *number.value
 }
 
 // Should take ownership
-fn set_value(ref number: Number) {
+fn set_value(mut number: Number) {
     let value = 2222222_u32;
     number = Number { value };
     number.value.print();
